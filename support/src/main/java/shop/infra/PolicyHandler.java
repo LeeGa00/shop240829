@@ -42,21 +42,6 @@ public class PolicyHandler {
         Delivery.startDelivery(event);
     }
 
-    @StreamListener(
-        value = KafkaProcessor.INPUT,
-        condition = "headers['type']=='OrderPlaced'"
-    )
-    public void wheneverOrderPlaced_StartDelivery(
-        @Payload OrderPlaced orderPlaced
-    ) {
-        OrderPlaced event = orderPlaced;
-        System.out.println(
-            "\n\n##### listener StartDelivery : " + orderPlaced + "\n\n"
-        );
-
-        // Sample Logic //
-        Delivery.startDelivery(event);
-    }
 
     @StreamListener(
         value = KafkaProcessor.INPUT,
